@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery-tab选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: inline-block;
+            padding: 15px;
+        }
+
+        .tab1,
+        .content1 {
+            background-color: yellow;
+        }
+
+        .tab2,
+        .content2 {
+            background-color: rgb(245, 68, 150);
+        }
+        .tab3,
+        .content3 {
+            background-color: skyblue;
+        }
+        #container>div{
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+ <script>
+    $(function () {
+        // var currIndex=0;
+        // var contents=$('#container>div')
+        $('#tab>li').click(function () {
+            $('#container>div').css('display', 'none')
+            // contents[currIndex].style.display='none' 
+            var index = $(this).index()
+            // console.log(index)
+            $('#container>div')[index].style.display = 'block'
+            // currIndex=index
+        })
+    })
+</script> 
+
+<body>
+     <div>
+        <h2>Tab选项卡切换</h2>
+        <ul id="tab">
+            <li class="tab1">10元套餐</li>
+            <li class="tab2">30元套餐</li>
+            <li class="tab3">50元套餐</li>
+        </ul>
+        <div id="container">
+            <div class="content1">我是10套餐啦啦啦啦啦啦</div>
+            <div class="content2" style="display: none">我是30套餐啦啦啦啦啦</div>
+            <div class="content3" style="display: none">我是50套餐啦啦啦啦啦</div>
+        </div>
+    </div> 
+
+</body>
+
+</html>
