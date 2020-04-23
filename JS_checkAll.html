@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS-全选功能</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #div_img {
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: greenyellow;
+            text-align: center;
+        }
+        img {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function(){
+        var checkedAllBox=document.getElementById('checkedAllBox');
+        var checkboxs=document.getElementsByClassName('a')
+        checkedAllBox.onclick = function(){
+            for(var i=0;i<checkboxs.length;i++){
+                checkboxs[i].checked=this.checked;
+            }
+        }
+    } 
+</script> 
+<body>
+    
+    <h2>全选</h2>
+    <div>
+        你爱好的运动是？<label><input type="checkbox" id="checkedAllBox">全选/全部选</label><br>
+        <input type="checkbox" class="a">足球
+        <input type="checkbox" class="a">篮球
+        <input type="checkbox" class="a">羽毛球
+        <input type="checkbox" class="a">乒乓球
+        <br>
+        <button>反选</button>
+    </div>
+
+</body>
+
+</html>
