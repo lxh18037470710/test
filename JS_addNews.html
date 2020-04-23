@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复习添加选项</title>
+
+</head>
+<style>
+    #table1 {
+        border-collapse: collapse;
+    }
+
+    #table1 td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    #formDiv {
+
+        display: inline-block;
+        border: 1px solid black;
+        padding: 20px;
+        margin-top: 50px;
+
+    }
+</style>
+
+<script>
+    function delA() {
+        var tr = this.parentNode.parentNode;
+        var name = tr.children[0].innerHTML;
+        var flag = confirm('删除' + name + '的信息吗？');
+        if (flag) {
+            tr.parentNode.removeChild(tr);
+        }
+    }
+    window.onload = function () {
+        var allA = document.getElementsByTagName('a');
+        for (var i = 0; i < allA.length; i++) {
+            allA[i].onclick = delA;
+        };
+        var emptyBtn=document.getElementById('emptyBtn');
+        emptyBtn.onclick=function(){
+            var empName=document.getElementById('empName').value;
+            var empEmail=document.getElementById('empEmail').value;
+            var empSalary=document.getElementById('empSalary').value;
+            var tr=document.createElement('tr');
+            tr.innerHTML='<td>'+empName+'</td>'+'<td>'+empEmail+'</td>'+'<td>'+empSalary+'</td>'+'<td><a href="javascript:;">delete</a></td>'
+            var a =tr.getElementsByTagName('a')[0];
+            a.onclick=delA;
+            var tbody=document.getElementsByTagName('tbody')[0];
+            tbody.appendChild(tr);
+        }
+
+    }
+</script>
+
+<body>
+    <table id="table1">
+            <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Salary</td>
+            <td>操作</td>
+        </tr>
+            <tr>
+            <td>张三</td>
+            <td>zs@qq.com</td>
+            <td>50000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>ls@qq.com</td>
+            <td>60000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>ww@qq.com</td>
+            <td>80000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        
+    </table>
+    <div id="formDiv">
+        <h2>添加员工信息</h2>
+        <table>
+            <tr>
+                <td>
+                    name: <input id="empName" value="aaa" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    email: <input id="empEmail" value="bbb" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    salary: <input id="empSalary" value="ccc" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="emptyBtn">提交</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
