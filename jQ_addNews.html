@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js添加项</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: blue;
+            text-decoration: underline
+        }
+
+        #fromdiv {
+            padding: 10px;
+            display: inline-block;
+            border: 1px solid black;
+            margin: 50px auto;
+
+        }
+
+        #table1 {
+            border-collapse: collapse;
+        }
+
+        #table1 td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        h2 {
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    function delA() {
+                var tr = this.parentNode.parentNode;
+                // var name = tr.getElementsByTagName('td')[0].innerHTML;
+                var name =tr.children[0].innerHTML;
+                var flag = confirm('确定要删除' + name + '的值吗')
+                if (flag) {
+                    tr.parentNode.removeChild(tr);
+                } 
+            };
+    window.onload = function () {
+        var allA = document.getElementsByTagName('a');
+        for (var i = 0; i < allA.length; i++) {
+            allA[i].onclick = delA;
+        }
+        
+        var addEmptyBtn = document.getElementById('addEmptyBtn');
+        addEmptyBtn.onclick=function(){
+            var empName = document.getElementById('empName').value;
+            var empEmail = document.getElementById('empEmail').value;
+            var empSalary = document.getElementById('empSalary').value;
+
+            var tr = document.createElement('tr');
+
+            tr.innerHTML='<td>'+empName+'</td>'
+                        +'<td>'+empEmail+'</td>'
+                        +'<td>'+empSalary+'</td>'
+                        +'<td><a>delete</a></td>'
+            var a = tr.getElementsByTagName('a')[0];
+             a.onclick=delA;
+        var tbody =document.getElementsByTagName('tbody')[0];
+        tbody.appendChild(tr)
+        }
+
+    };
+</script>
+
+<body>
+
+    <table id="table1">
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>邮箱</td>
+                <td>工资</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tom</td>
+                <td>tom@qq.com</td>
+                <td>5000</td>
+                <td><a>delete</a></td>
+            </tr>
+            <tr>
+                <td>jerry</td>
+                <td>jerry@qq.com</td>
+                <td>7000</td>
+                <td><a>delete</a></td>
+            </tr>
+            <tr>
+                <td>peiqi</td>
+                <td>peiqiqq.com</td>
+                <td>10000</td>
+                <td><a>delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="fromdiv">
+        <h2>添加新员工</h2>
+        <table id="table2">
+            <tr>
+                <td>name:<input type="text" id="empName" value="aaa"></td>
+            </tr>
+            <tr>
+                <td>email:<input type="text" id="empEmail" value="bbb"></td>
+            </tr>
+            <tr>
+                <td>salary:<input type="text" id="empSalary" value="10000000"></td>
+            </tr>
+            <tr>
+                <td><button id="addEmptyBtn">提交</button></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+</body>
+
+</html>
+</div>
