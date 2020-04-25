@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS-图片切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #div_img{
+            width:500px;
+            background-color: greenyellow;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        img{
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var img = document.getElementsByTagName('img')[0];
+        var imgArr=["./image/1.jpg","./image/2.jpg","./image/3.jpg"]
+        var index=0;
+        var info =document.getElementById('info');
+        info.innerHTML="一共"+imgArr.length+"张图片，当前是第"+(index+1)+"张" 
+        prev.onclick = function () {
+            index--;
+            if(index<0){
+                index=imgArr.length-1
+            }
+            img.src = imgArr[index]
+            info.innerHTML="一共"+imgArr.length+"张图片，当前是第"+(index+1)+"张"
+
+        }
+        next.onclick = function () {
+            index++;
+            if(index>imgArr.length-1){
+                index=0
+            }
+            img.src = imgArr[index]
+            info.innerHTML="一共"+imgArr.length+"张图片，当前是第"+(index+1)+"张"
+
+        }
+    }
+</script>  
+
+<body>
+    <div id="div_img">
+        <P id="info"></P>
+        <img src="image/1.jpg" /><br>
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+
+    </div>
+</body>
+
+</html>
