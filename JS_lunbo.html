@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS轮播图</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        div{
+            width: 520px;
+            height: 300px;
+            background-color:greenyellow;
+            padding: 10px 0px;
+            margin: 50px auto;
+            position: relative;
+            /* overflow: hidden; */
+
+        }
+        img{
+            width: 500px;
+            height: 300px;
+        }
+        #img_list{
+            position: absolute;
+            left: -1040px;
+        } 
+        #img_list li{
+            margin:0px 10px ;
+            float: left;
+
+        }
+        .ul_bar{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            bottom:20px;
+            left:35%;
+        }
+        .ul_bar li{
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            margin-right: 15px;
+        }
+    
+    </style>
+</head>
+<script>
+window.onload=function(){
+    var imgList=document.getElementById('img_list');
+    var imgArr=document.getElementsByTagName('img');
+    imgList.style.width=520*imgArr.length+'px';
+    
+}
+</script>
+<body>
+    <div>
+        <ul id="img_list">
+            <li><img src="./image/1.jpg" alt=""></li>
+            <li><img src="./image/2.jpg" alt=""></li>
+            <li><img src="./image/3.jpg" alt=""></li>
+            <li><img src="./image/4.jpg" alt=""></li>
+            <li><img src="./image/5.jpg" alt=""></li>
+        </ul>
+        <ul class="ul_bar">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
