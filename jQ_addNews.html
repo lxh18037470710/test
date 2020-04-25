@@ -40,7 +40,7 @@
     </style>
 </head>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-<script>
+<!-- <script>
     function delA() {
                 var tr = this.parentNode.parentNode;
                 // var name = tr.getElementsByTagName('td')[0].innerHTML;
@@ -75,8 +75,31 @@
         }
 
     };
-</script>
+</script> -->
+<script>
+    $(function () {
+        $('#addEmptyBtn').click(function(){
+            var empName=$('#empName').val();
+            var empEmail=$('#empEmail').val();
+            var empSalary=$('#empSalary').val();    
+            var list= $('<tr></tr>').append('<td>'+empName+'</td>')
+                          .append('<td>'+empEmail+'</td>')
+                          .append('<td>'+empSalary+'</td>') 
+                          .append('<td><a>删除</a></td>')  
+                          .appendTo('#table1>tbody')   
+            list.find('a').click(delA)
+        })
+        function delA(){
+            var tr=$(this).parent().parent()
+            var name = tr.children('td:first').html()
+            if(confirm('真的要删除'+name+'吗？')){
+                tr.remove()
+            }
+        }
+        $('a').click(delA)
+      })
 
+</script>
 <body>
 
     <table id="table1">
