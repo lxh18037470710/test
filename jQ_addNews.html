@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>js添加项</title>
+    <title>jQ_添加员工信息
+    </title>
     <style>
         * {
             margin: 0;
@@ -40,42 +41,6 @@
     </style>
 </head>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-<!-- <script>
-    function delA() {
-                var tr = this.parentNode.parentNode;
-                // var name = tr.getElementsByTagName('td')[0].innerHTML;
-                var name =tr.children[0].innerHTML;
-                var flag = confirm('确定要删除' + name + '的值吗')
-                if (flag) {
-                    tr.parentNode.removeChild(tr);
-                } 
-            };
-    window.onload = function () {
-        var allA = document.getElementsByTagName('a');
-        for (var i = 0; i < allA.length; i++) {
-            allA[i].onclick = delA;
-        }
-        
-        var addEmptyBtn = document.getElementById('addEmptyBtn');
-        addEmptyBtn.onclick=function(){
-            var empName = document.getElementById('empName').value;
-            var empEmail = document.getElementById('empEmail').value;
-            var empSalary = document.getElementById('empSalary').value;
-
-            var tr = document.createElement('tr');
-
-            tr.innerHTML='<td>'+empName+'</td>'
-                        +'<td>'+empEmail+'</td>'
-                        +'<td>'+empSalary+'</td>'
-                        +'<td><a>delete</a></td>'
-            var a = tr.getElementsByTagName('a')[0];
-             a.onclick=delA;
-        var tbody =document.getElementsByTagName('tbody')[0];
-        tbody.appendChild(tr)
-        }
-
-    };
-</script> -->
 <script>
     $(function () {
         $('#addEmptyBtn').click(function(){
@@ -87,7 +52,8 @@
                           .append('<td>'+empSalary+'</td>') 
                           .append('<td><a>删除</a></td>')  
                           .appendTo('#table1>tbody')   
-            list.find('a').click(delA)
+            // list.find('a').click(delA)
+            $('#table1').delegate('a','click',delA)
         })
         function delA(){
             var tr=$(this).parent().parent()
